@@ -5,7 +5,7 @@ import { LocationContext } from "../../../services/location/location.context";
 import { RestaurantsContext } from "../../../services/restaurants/restaurants.context";
 
 import { Search } from "../components/search.component";
-import { CompactRestaurantInfo } from "../../../components/restaurant/compact-restaurant-info.component";
+import { MapCallout } from "../components/map-callout.component";
 
 const Map = styled(MapView)`
   height: 100%;
@@ -53,7 +53,7 @@ export const MapScreen = ({ navigation }) => {
                   navigation.navigate("RestaurantDetail", { restaurant })
                 }
               >
-                <CompactRestaurantInfo restaurant={restaurant} />
+                <MapCallout restaurant={restaurant} />
               </MapView.Callout>
             </MapView.Marker>
           );
