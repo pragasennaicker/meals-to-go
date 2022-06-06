@@ -1,18 +1,19 @@
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import {
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyCpk9Bih93AuaS1IP-rlIx_ct-olU2Gwdc",
-  authDomain: "mealstogo-f0e0b.firebaseapp.com",
-  projectId: "mealstogo-f0e0b",
-  storageBucket: "mealstogo-f0e0b.appspot.com",
-  messagingSenderId: "561206388276",
-  appId: "1:561206388276:web:2398a7d93b957196b28c61",
+export const loginRequest = async (auth, email, password) => {
+  const user = await signInWithEmailAndPassword(auth, email, password);
+  return user;
 };
 
-const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
+export const createUserRequest = async (auth, email, password) => {
+  const newUser = await createUserWithEmailAndPassword(auth, email, password);
+  return newUser.user;
+};
 
-export const loginRequest = (email, password) => {
-  signInWithEmailAndPassword(auth, email, password);
+export const signOutRequest = async (auth) => {
+  await signOut(auth);
 };
