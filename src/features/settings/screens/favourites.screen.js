@@ -11,11 +11,11 @@ const TextContainer = styled.View`
   align-items: center;
 `;
 
-export const FavouritesScreen = () => {
+export const FavouritesScreen = ({ navigation }) => {
   const { favourites } = useContext(FavouritesContext);
 
   return favourites.length ? (
-    <RestaurantListComponent data={favourites} />
+    <RestaurantListComponent data={favourites} navigation={navigation} />
   ) : (
     <SafeArea>
       <TextContainer>

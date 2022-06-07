@@ -29,7 +29,7 @@ export const RestaurantsScreen = ({ navigation }) => {
       {isLoading ? (
         <ActivityIndicator animating={isLoading} color={colors.brand.primary} />
       ) : (
-        <RestaurantListComponent data={restaurants} />
+        <RestaurantListComponent data={restaurants} navigation={navigation} />
       )}
     </SafeArea>
   );

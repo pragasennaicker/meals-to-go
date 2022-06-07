@@ -18,6 +18,7 @@ export const RestaurantListComponent = ({ data, navigation }) => {
     <SafeArea>
       <RestaurantList
         data={data}
+        navigation={navigation}
         renderItem={({ item }) => {
           return (
             <TouchableOpacity
@@ -28,9 +29,7 @@ export const RestaurantListComponent = ({ data, navigation }) => {
               }
             >
               <Spacer position="bottom" size="large">
-                <FadeInView>
-                  <RestaurantInfoCard restaurant={item} />
-                </FadeInView>
+                <RestaurantInfoCard restaurant={item} />
               </Spacer>
             </TouchableOpacity>
           );
