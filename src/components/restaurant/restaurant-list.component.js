@@ -3,6 +3,7 @@ import { FlatList, TouchableOpacity } from "react-native";
 import styled from "styled-components/native";
 
 import { SafeArea } from "../utils/safe-area.component";
+import { FadeInView } from "../animations/fade.animation";
 import { Spacer } from "../spacer/spacer.component";
 import { RestaurantInfoCard } from "../../features/restaurants/components/restaurant-info-card.component";
 
@@ -27,7 +28,9 @@ export const RestaurantListComponent = ({ data, navigation }) => {
               }
             >
               <Spacer position="bottom" size="large">
-                <RestaurantInfoCard restaurant={item} />
+                <FadeInView>
+                  <RestaurantInfoCard restaurant={item} />
+                </FadeInView>
               </Spacer>
             </TouchableOpacity>
           );
