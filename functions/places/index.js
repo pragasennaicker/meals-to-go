@@ -28,24 +28,24 @@ module.exports.placesRequest = (request, response, client) => {
       data.results = data.results.map(addMockImage);
     }
     return response.json(data);
+  } else {
+    client
+      .placesNearby({
+        params: {
+          location: location,
+          radius: 1500,
+          type: "restaurant",
+          key: functions.config().goole.key,
+        },
+        timeout: 1000,
+      })
+      .then((result) => {
+        result.data.results = result.data.results.map(addGoogleImage);
+        return response.json(result.data);
+      })
+      .catch((e) => {
+        response.status(400);
+        return response.send(e);
+      });
   }
-
-  client
-    .placesNearby({
-      params: {
-        location: location,
-        radius: 1500,
-        type: "restaurant",
-        key: functions.config().goole.key,
-      },
-      timeout: 1000,
-    })
-    .then((result) => {
-      result.data.results = result.data.results.map(addGoogleImage);
-      return response.json(result.data);
-    })
-    .catch((e) => {
-      response.status(400);
-      return response.send(e.response.data.error_message);
-    });
 };
