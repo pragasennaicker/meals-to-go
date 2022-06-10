@@ -1,5 +1,5 @@
 import React from "react";
-import { List } from "react-native-paper";
+import { List, Divider } from "react-native-paper";
 import { View, ScrollView } from "react-native";
 
 import { SafeArea } from "../../../components/utils/safe-area.component";
@@ -26,9 +26,12 @@ export const RestaurantDetailScreen = ({ route }) => {
           onPress={handlePressB}
         >
           <List.Item title="Museli" />
+          <Divider />
           <List.Item title="Scrambled eggs" />
+          <Divider />
           <List.Item title="Avo and toast" />
         </List.Accordion>
+        <Divider />
         <List.Accordion
           title="Lunch"
           left={(props) => <List.Icon {...props} icon="food" />}
@@ -36,9 +39,12 @@ export const RestaurantDetailScreen = ({ route }) => {
           onPress={handlePressL}
         >
           <List.Item title="Burgers" />
+          <Divider />
           <List.Item title="Toasted sandwiches" />
+          <Divider />
           <List.Item title="Salad" />
         </List.Accordion>
+        <Divider />
         <List.Accordion
           title="Dinner"
           left={(props) => (
@@ -48,7 +54,9 @@ export const RestaurantDetailScreen = ({ route }) => {
           onPress={handlePressD}
         >
           <List.Item title="Pizza" />
+          <Divider />
           <List.Item title="Steak" />
+          <Divider />
           <List.Item title="Lamb chops" />
         </List.Accordion>
       </ScrollView>
