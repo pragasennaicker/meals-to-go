@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Divider } from "react-native-paper";
-import { View, ScrollView } from "react-native";
+import { ScrollView } from "react-native";
 
 import { SafeArea } from "../../../components/utils/safe-area.component";
 import { RestaurantInfoCard } from "../components/restaurant-info-card.component";

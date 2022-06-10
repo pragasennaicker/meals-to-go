@@ -1,5 +1,4 @@
 const { mocks, addMockImage } = require("./mock");
-const functions = require("firebase-functions");
 
 const addGoogleImage = (restaurant) => {
   const ref = restaurant.photos[0].photo_reference;
@@ -12,9 +11,7 @@ const addGoogleImage = (restaurant) => {
   }
 
   restaurant.photos = [
-    `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=${
-      functions.config().goole.key
-    }`,
+    `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${ref}&key=${process.env.GOOGLE_KEY}`,
   ];
   return restaurant;
 };
@@ -35,7 +32,7 @@ module.exports.placesRequest = (request, response, client) => {
           location: location,
           radius: 1500,
           type: "restaurant",
-          key: functions.config().goole.key,
+          key: process.env.GOOGLE_KEY,
         },
         timeout: 1000,
       })
