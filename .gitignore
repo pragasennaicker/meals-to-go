@@ -16,3 +16,6 @@ web-build/
 .env
 
 */node_modules/**/*
+firebase-debug.log
+ui-debug.log
+.runtimeconfig.json
