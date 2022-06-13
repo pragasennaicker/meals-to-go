@@ -37,7 +37,6 @@ export const RestaurantsContextProvider = ({ children }) => {
     if (location) {
       const locationString = `${location.lat},${location.lng}`;
       retrieveRestaurants(locationString);
-      console.log("transformed lat and lng", locationString);
     }
   }, [location]);
 

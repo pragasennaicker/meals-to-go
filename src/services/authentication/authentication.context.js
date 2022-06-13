@@ -65,8 +65,6 @@ export const AuthContextProvider = ({ children }) => {
       setUser(res);
       setIsLoading(false);
     } catch (e) {
-      const errorCode = e.code;
-      const errorMessage = e.message;
       setIsLoading(false);
       setError(e.toString());
     }
@@ -77,7 +75,7 @@ export const AuthContextProvider = ({ children }) => {
       await signOutRequest(auth);
       setUser(null);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
