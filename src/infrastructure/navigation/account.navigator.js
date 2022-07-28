@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 
 export const AccountNavigator = () => {
   return (
-    <Stack.Navigator headerMode="none">
+    <Stack.Navigator>
       <Stack.Screen name="Main" component={AccountScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={RegisterScreen} />
